@@ -1,0 +1,59 @@
+# Banda-Transportadora-int infrarrojo= A10;
+int valor= 0;
+int pin_1 = 8;
+int pin_2 = 7;
+int bomba = 9;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(infrarrojo, INPUT);
+  pinMode(pin_1, OUTPUT); 
+  pinMode(pin_2, OUTPUT);
+  pinMode(bomba, OUTPUT);
+  
+} 
+void loop() {
+
+valor = analogRead(infrarrojo);
+Serial.println(valor);
+digitalWrite(bomba, HIGH);
+digitalWrite(pin_1, LOW);
+digitalWrite(pin_2, HIGH);
+
+if (valor <=300){
+  Serial.println("objeto detectado");
+  digitalWrite(pin_1, LOW);
+  digitalWrite(pin_2, LOW);
+  delay(5000);
+  digitalWrite(bomba, LOW);
+  delay(5000);
+  digitalWrite(bomba, HIGH);
+  delay(2000);
+} 
+
+  Serial.println("objeto salir");
+  digitalWrite(pin_1, LOW);
+  digitalWrite(pin_2, HIGH);
+  
+  delay(2000);
+
+
+}    
+  
+
+
+ 
+  
+
+
+ 
+  /* 
+  delay(3000);
+  digitalWrite(bomba, HIGH);
+  delay(1000);-----
+  digitalWrite(pin_1, LOW);
+  digitalWrite(pin_2, HIGH);
+  delay(3000);
+  digitalWrite(bomba, LOW);*/
+  
+Banda Transportadora para proceso envasado
